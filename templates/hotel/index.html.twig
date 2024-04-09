@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h2>Liste des Hotels | <small> <a href="{{ path('ajout_hotel')}}">Ajouter</a>
+</small></h2>
+   
+   <table class="table table-hover table-striped" border="1">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>nomhotel</th>
+      <th>capacite</th>
+      <th>price</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for hotel in hotels %}
+      <tr>
+        <td> {{ hotel.id }}</td>
+        <td>{{ hotel.nomhotel}} </td>
+        <td>{{ hotel.capacite}} </td>
+        <td>{{ hotel.price }}</td>
+        <td>
+         <a class="btn btn-primary" href="{{path('hotel_show',{'id':hotel.id})}}">voir</a>
+      <a class="btn btn-success" href="{{ path('edith_user', {'id':hotel.id })}}"> Modifier</a>
+      <a class="btn btn-danger" href="{{ path('hotel_deleteh', {'id':hotel.id }) }}"
+onclick="return confirm('Are you sure to delete!{{ hotel.id 
+}}')">Supprimer</a>
+        </td>
+      </tr>
+   
+    {% endfor %}
+    </tbody>
+  </table>
+  
+{% endblock %}
+

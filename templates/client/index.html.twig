@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h2>Liste des Client | <small> <a href="{{ path('add_client')}}">Ajouter</a>
+</small></h2>
+   
+   <table class="table table-hover table-striped" border="1">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>nom</th>
+      <th>nbrpersonne</th>
+      <th>email</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for client in clients %}
+      <tr>
+        <td>{{ client.id }}</td>
+        <td>{{ client.nom}} </td>
+        <td>{{ client.nbrpersonne}} </td>
+        <td>{{ client.email }}</td>
+        <td>
+          <a class="btn btn-primary" href="{{path('client_show',{'id':client.id})}}">voir</a>
+      <a class="btn btn-success" href="{{ path('edit_user', {'id':client.id })}}"> Modifier</a>
+      <a class="btn btn-danger" href="{{ path('client_delete', {'id':client.id }) }}"
+onclick="return confirm('Are you sure to delete!{{ client.id 
+}}')">Supprimer</a>
+        </td>
+      </tr>
+   
+    {% endfor %}
+    </tbody>
+  </table>
+  
+{% endblock %}

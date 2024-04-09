@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+{% block title %}Ajout Nouvel Enregistrement{% endblock %}
+{% block body %}
+    <h2> Ajouter Hotel</h2>
+    {{ form_start(f) }}
+    {{ form_widget(f) }}
+    {{ form_end (f)}}
+    <a href="{{path('home1')}}" class="btn btn-secondary">Back to List</a>
+{% endblock %}

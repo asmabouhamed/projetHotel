@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+{% block title %}Ajout Nouvel Enregistrement{% endblock %}
+{% block body %}
+    <h2> Ajouter Clients </h2>
+    {{ form_start(f) }}
+    {{ form_widget(f) }}
+    {{ form_end (f)}}
+    <a href="{{path('home')}}" class="btn btn-secondary">Back to List</a>
+{% endblock %}
